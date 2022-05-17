@@ -102,11 +102,16 @@ class CaloriesCalculator(Calculator):
 
 
 class CashCalculator(Calculator):
+    # Лучше не конвертировать их во float. Лишняя опреация, ничего не дает.
+    # Деление работает и с типом int
+    # Например: 10 / 10 = 1.0
+    # Если очень хочется именно float, то можно написать 60.0 и 70.0
     USD_RATE = float(60)  # Курс доллар США.
     EURO_RATE = float(70)  # Курс Евро.
 
     
     # USD_RATE=USD_RATE и EURO_RATE=EURO_RATE объявлять не нужно, это уже глобальные переменные класса, функция их видит.
+    # Получится ли взять просто USD_RATE и EURO_RATE внутри функции?
     def get_today_cash_remained(self, currency,
                                 USD_RATE=USD_RATE, EURO_RATE=EURO_RATE):
         
@@ -151,6 +156,6 @@ class CashCalculator(Calculator):
     # Хороший вопрос на подумать: что нужно сделать с функцией, чтобы она заработала? 
     # В целом, super() нужно использовать, когда мы хотим как-то дополнить метод родительского класса
     # В нашем случае мы ничего не дополняем и следующие 2 строчки можно просто убрать.
-    # Можно почитать тут: https://docs-python.ru/tutorial/vstroennye-funktsii-interpretatora-python/funktsija-super/
+    # Дополнительно можно почитать тут: https://docs-python.ru/tutorial/vstroennye-funktsii-interpretatora-python/funktsija-super/
     def get_week_stats(self):
         super().get_week_stats()
