@@ -18,6 +18,7 @@ class Record:
     # После каждой переменной внутри скобок желательно писать тип данных, который ожидатся. 
     # Например: def __init__(self, amount: int, comment: str, date: str = ''). 
     # Для этого можно также использовать встроенную библиотеку typing.
+    # Ссылка: https://docs.python.org/3/library/typing.html
     def __init__(self, amount, comment, date=''):
         self.amount = amount
         # Лучше написать без отрицания not.
