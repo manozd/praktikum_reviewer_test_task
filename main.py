@@ -146,6 +146,11 @@ class CashCalculator(Calculator):
             return 'Денег нет, держись:' \
                    ' твой долг - {0:.2f} {1}'.format(-cash_remained,
                                                      currency_type)
-
+    
+    # Эта функция не работает, при вызове мы получим None.
+    # Хороший вопрос на подумать: что нужно сделать с функцией, чтобы она заработала? 
+    # В целом, super() нужно использовать, когда мы хотим как-то дополнить метод родительского класса
+    # В нашем случае мы ничего не дополняем и следующие 2 строчки можно просто убрать.
+    # Можно почитать тут: https://docs-python.ru/tutorial/vstroennye-funktsii-interpretatora-python/funktsija-super/
     def get_week_stats(self):
         super().get_week_stats()
