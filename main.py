@@ -93,6 +93,11 @@ class Calculator:
 class CaloriesCalculator(Calculator):
     def get_calories_remained(self):  # Получает остаток калорий на сегодня
         x = self.limit - self.get_today_stats()
+        # Длинную строку можно обернуть в () без переноса \
+        # Например: return ('Hello'
+        #                   ' '
+        #                   'World!')
+        # Вернет Hello World!
         if x > 0:
             return f'Сегодня можно съесть что-нибудь' \
                    f' ещё, но с общей калорийностью не более {x} кКал'
@@ -147,6 +152,10 @@ class CashCalculator(Calculator):
             )
         elif cash_remained == 0:
             return 'Денег нет, держись'
+        # Можно убрать перенос \ и написать 
+        # return "Денег нет, держись:" твой долг - {0:.2f} {1}".format(
+        #        -cash_remained, currency_type
+        # )
         elif cash_remained < 0:
             return 'Денег нет, держись:' \
                    ' твой долг - {0:.2f} {1}'.format(-cash_remained,
